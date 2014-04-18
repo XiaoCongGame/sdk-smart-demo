@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 /**
- * Demo主活动
+ * The main activity for the demo.
  * 
  * @author yaoyuan
  * 
@@ -42,8 +42,8 @@ public class MainActivity extends Activity {
     public void login(View view) {
         Intent loginIntent = new Intent(this, LoginActivity.class);
         // 需要传入client_id和client_secret，这两个值是Oauth标准的。
-        loginIntent.putExtra("client_id", "100018");
-        loginIntent.putExtra("client_secret", "ghjgrtyafcdbn345bvbndlk");
+        loginIntent.putExtra("client_id", Keys.CLIENT_ID);
+        loginIntent.putExtra("client_secret", Keys.CLIENT_SECRET);
         loginIntent.putExtra("usingCache", true); // 记住登录
 
         startActivityForResult(loginIntent, REQUEST_CODE_LOGIN);
@@ -72,12 +72,12 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_LOGIN && resultCode == RESULT_OK && data != null) {
-            String accessCode = data.getStringExtra(LoginActivity.RESPONSE_ACESS_CODE);
+            String accessToken = data.getStringExtra(LoginActivity.RESPONSE_ACESS_TOKEN);
 
-            Toast.makeText(this, "access_code:" + accessCode, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "access_token:" + accessToken, Toast.LENGTH_LONG).show();
 
             Editor editor = getSharedPreferences("session", MODE_PRIVATE).edit();
-            editor.putString("access_code", accessCode);
+            editor.putString("access_token", accessToken);
             editor.commit();
 
         } else if (requestCode == REQUEST_CODE_REGISTER) {

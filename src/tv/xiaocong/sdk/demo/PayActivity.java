@@ -21,20 +21,21 @@ public class PayActivity extends Activity {
 
     private EditText orderNoView;
 
-    private EditText accessCodeView;
+    private EditText accessTokenView;
 
-    private String accessCode;
+    private String accessToken;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pay);
 
         orderNoView = (EditText) findViewById(R.id.order_num);
-        accessCodeView = (EditText) findViewById(R.id.access_code);
-        accessCode = getSharedPreferences("session", MODE_PRIVATE).getString("access_code", "");
-        accessCodeView.setText(accessCode);
+        accessTokenView = (EditText) findViewById(R.id.access_token);
+        accessToken = getSharedPreferences("session", MODE_PRIVATE).getString("access_token", "");
+        accessTokenView.setText(accessToken);
     }
 
+    /** The event handler for pay button. */
     public void pay(View view) {
         String partnerId = ((EditText) findViewById(R.id.partner_id)).getText().toString();
         String amount = ((EditText) findViewById(R.id.amount)).getText().toString();
@@ -57,9 +58,10 @@ public class PayActivity extends Activity {
         }
 
         XcPayUtils.pay(this, partnerId, amount, "md5", orderNo, pkgName, pay_for, signature,
-                callbackUrl, remark, accessCode);
+                callbackUrl, remark, accessToken);
     }
 
+    /** Build the request signature. */
     private static String getSign(int partnerId, int amount, String pkgName, String orderNo,
             String md5key) throws Exception {
         return Md5Util.md5code(partnerId + "&" + pkgName + "&" + amount + "&" + orderNo + "&"

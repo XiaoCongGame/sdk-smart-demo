@@ -18,6 +18,6 @@
     <string name="callback_url">(required, String)The callback URL in your server.</string>
     <string name="remark">(String) The remark of this order. Not required.</string>
     
-    <string name="access_code">Oauth2 access_code. Sign in first if this field is empty.</string>
+    <string name="access_token">Oauth2 access_token. Sign in first if this field is empty.</string>
 
 </resources>

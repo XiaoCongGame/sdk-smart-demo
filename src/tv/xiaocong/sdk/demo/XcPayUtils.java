@@ -24,7 +24,7 @@ final class XcPayUtils {
      * @param orderNo
      *            the order number in your system
      * @param pkgname
-     *            the package name of you App
+     *            the package name of you Application
      * @param goodsDes
      *            some descriptions about your goods
      * @param signature
@@ -34,7 +34,7 @@ final class XcPayUtils {
      */
     public static void pay(Context context, String partnerId, String amount, String signType,
             String orderNo, String pkgname, String goodsDes, String signature, String notifyUrl,
-            String remark, String accessCode) {
+            String remark, String accessToken) {
         Bundle bundle = new Bundle();
         bundle.putString("partnerId", partnerId);
         bundle.putString("amount", amount);
@@ -50,8 +50,8 @@ final class XcPayUtils {
         if (remark != null && !remark.isEmpty()) {
             bundle.putString("mark", remark);
         }
-        if (accessCode != null && !accessCode.isEmpty()) {
-            bundle.putString("accessCode", accessCode);
+        if (accessToken != null && !accessToken.isEmpty()) {
+            bundle.putString("accessToken", accessToken);
         }
 
         Intent payIntent = new Intent(context, GetGameinfomation.class);

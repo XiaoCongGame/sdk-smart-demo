@@ -12,11 +12,11 @@
 
         <TextView
             style="@style/form_label"
-            android:text="@string/access_code" >
+            android:text="@string/access_token" >
         </TextView>
 
         <EditText
-            android:id="@+id/access_code"
+            android:id="@+id/access_token"
             style="@style/form_field"
           android:inputType="none" >
         </EditText>

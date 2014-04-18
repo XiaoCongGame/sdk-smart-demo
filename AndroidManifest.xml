@@ -26,8 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="tv.xiaocong.sdk.demo.PayActivity" >
-        </activity>
+        <activity android:name="tv.xiaocong.sdk.demo.PayActivity"></activity>
         <activity
             android:name="tv.xiaocong.sdk.security.RegisterActivity"
             android:label="@string/xcsdk_register_title"
@@ -54,7 +53,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        
         <service
             android:name="tv.xiaocong.sdk.ad.ApkDownloadSetupService"
             android:exported="false" >

@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="form_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="form_field">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:hint"></item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+</resources>

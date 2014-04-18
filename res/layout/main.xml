@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/demo_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="register"
+        android:text="@string/demo_register" />
+
+    <Button
+        android:id="@+id/demo_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="login"
+        android:text="@string/demo_login" />
+
+    <Button
+        android:id="@+id/demo_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startup"
+        android:text="@string/demo_splash" />
+
+    <Button
+        android:id="@+id/demo_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pay"
+        android:text="@string/demo_pay" />
+
+</LinearLayout>

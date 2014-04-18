@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp" >
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/access_code" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/access_code"
+            style="@style/form_field"
+          android:inputType="none" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/pkg" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/pkgName"
+            style="@style/form_field"
+            android:text="tv.xiaocong.bwnc" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/pay_for" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/pay_for"
+            style="@style/form_field"
+            android:text="Sword" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/order_num" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/order_num"
+            style="@style/form_field"
+            android:text="123456789012" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/amount" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/amount"
+            style="@style/form_field"
+            android:text="10" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/secure_key" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/secure_key"
+            style="@style/form_field"
+            android:text="1234567890" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/partner_id" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/partner_id"
+            style="@style/form_field" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/callback_url" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/callback_url"
+            style="@style/form_field"
+            android:inputType="textUri"
+            android:text="http://wwww.abc.com" >
+        </EditText>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/remark" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/remark"
+            style="@style/form_field"
+            android:text="good boy" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="pay"
+            android:text="@string/pay_btn" />
+    </LinearLayout>
+
+</ScrollView>

@@ -41,11 +41,11 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.xiaocong.activity.GetGameinfomation"
+            android:name="com.xiaocong.activity.PaymentStartActivity"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.xiaocong.activity.ChosesPayWaysActivity"
+            android:name="com.xiaocong.activity.PayWayActivity"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.XCpay" />

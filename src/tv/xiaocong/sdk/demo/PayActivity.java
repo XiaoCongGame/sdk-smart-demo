@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.xiaocong.unitil.XCPayuntil;
+import com.xiaocong.activity.PaymentStartActivity;
 
 /**
  * The demo for payment.
@@ -17,12 +17,8 @@ import com.xiaocong.unitil.XCPayuntil;
  */
 public class PayActivity extends Activity {
 
-    public static String ACTION_DEMO = "com.xiaocong.launcher.PACKAGE_XC";
-
     private EditText orderNoView;
-
     private EditText accessTokenView;
-
     private String accessToken;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -70,38 +66,8 @@ public class PayActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            String status = data.getStringExtra("status");
-            String msg = data.getStringExtra("message");
-            if ("1".equals(status)) {
-                Toast.makeText(PayActivity.this, "message-" + "Success", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(PayActivity.this, msg + "-   status-" + status, Toast.LENGTH_LONG)
-                        .show();
-            }
+        if (requestCode == PaymentStartActivity.REQUEST_CODE_START_PAY) {
+            Toast.makeText(this, "Result: " + resultCode, Toast.LENGTH_LONG).show();
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        switch (XCPayuntil.resultCodeforbuy) {
-        case XCPayuntil.PAYRESULT_OK: // successful payment
-            Toast.makeText(PayActivity.this,
-                    "Successfully Payment!  pay_result_code:" + XCPayuntil.resultCodeforbuy,
-                    Toast.LENGTH_LONG).show();
-        case XCPayuntil.PAYRESULT_FAIL: // failed payment
-        case XCPayuntil.PUSHORDER_OK: // successful submit of payment
-        case XCPayuntil.PUSHORDER_FAIL: // failed submit of payment
-        case XCPayuntil.CREAT_ORDER_FAIL: // failed to create the payment
-        case XCPayuntil.RESULT_ORDER_NULL: // failed to create the payment: the server response null
-        case XCPayuntil.CANCEL_BUY: // cancelled payment
-        case XCPayuntil.AsyncTask_result: // you will be notified the result asynchronously
-            Toast.makeText(PayActivity.this, "pay_result_code:" + XCPayuntil.resultCodeforbuy,
-                    Toast.LENGTH_LONG).show();
-            break;
-        }
-
     }
 }

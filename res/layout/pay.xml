@@ -29,7 +29,7 @@
         <EditText
             android:id="@+id/pkgName"
             style="@style/form_field"
-            android:text="tv.xiaocong.bwnc" >
+            android:text="tv.xiaocong.sdk.demo" >
         </EditText>
 
         <TextView

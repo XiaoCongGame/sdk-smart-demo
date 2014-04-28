@@ -51,7 +51,7 @@
         <EditText
             android:id="@+id/order_num"
             style="@style/form_field"
-            android:text="123456789012" >
+            android:text="99999999990001" >
         </EditText>
 
         <TextView

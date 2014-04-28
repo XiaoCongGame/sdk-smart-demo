@@ -53,8 +53,8 @@ public class PayActivity extends Activity {
             return;
         }
 
-        XcPayUtils.pay(this, partnerId, amount, "md5", orderNo, pkgName, pay_for, signature,
-                callbackUrl, remark, accessToken);
+        XcPayUtils.pay(this, Integer.parseInt(partnerId), Integer.parseInt(amount), "md5", orderNo,
+                pkgName, pay_for, signature, callbackUrl, remark, accessToken);
     }
 
     /** Build the request signature. */

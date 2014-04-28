@@ -1,9 +1,6 @@
 package tv.xiaocong.sdk.demo;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 
 import com.xiaocong.activity.PaymentStartActivity;
 
@@ -15,8 +12,8 @@ final class XcPayUtils {
     /**
      * Execute payment.
      * 
-     * @param context
-     *            an {@link Context} instance
+     * @param caller
+     *            caller that starts {@link PaymentStartActivity}.
      * @param partnerId
      * @param amount
      *            the paying amount
@@ -33,32 +30,11 @@ final class XcPayUtils {
      *            the callback URL
      * @param remark
      */
-    public static void pay(Activity context, String partnerId, String amount, String signType,
+    public static void pay(Activity caller, int partnerId, int amount, String signType,
             String orderNo, String pkgname, String goodsDes, String signature, String notifyUrl,
             String remark, String accessToken) {
-        Bundle bundle = new Bundle();
-        bundle.putString("partnerId", partnerId);
-        bundle.putString("amount", amount);
-        bundle.putString("signType", signType);
-        bundle.putString("orderNo", orderNo);
-        bundle.putString("PackageName", pkgname);
-        bundle.putString("goodsDes", goodsDes);
-        bundle.putString("sign", signature);
-
-        if (notifyUrl != null && !notifyUrl.isEmpty()) {
-            bundle.putString("notifyUrl", notifyUrl);
-        }
-        if (remark != null && !remark.isEmpty()) {
-            bundle.putString("mark", remark);
-        }
-        if (accessToken != null && !accessToken.isEmpty()) {
-            bundle.putString("accessToken", accessToken);
-        }
-
-        Intent payIntent = new Intent(context, PaymentStartActivity.class);
-        payIntent.putExtras(bundle);
-
-        context.startActivityForResult(payIntent, PaymentStartActivity.REQUEST_CODE_START_PAY);
+        PaymentStartActivity.startMe(caller, partnerId, amount, signType, orderNo, pkgname,
+                goodsDes, signature, notifyUrl, remark, accessToken);
     }
 
 }

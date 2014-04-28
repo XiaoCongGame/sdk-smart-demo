@@ -10,7 +10,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="pay_btn">Confirm</string>
     <string name="pay_for">(required, String) The identifier or description of you goods</string>
-    <string name="order_num">(required, String) The order number. Should be unique for all your request. Format: ^\\d{12,20}$</string>
+    <string name="order_num">(required, String) The order number. Should be unique for all your request. Prefixed by your partnerId. Format: ^{12,30}$</string>
     <string name="amount">(required, number) Amount. How many Xiaocong coin to pay? 1 Xiaocong coin == 1 RMB cent.</string>
     <string name="pkg">(required, String) The package name of you app</string>
     <string name="secure_key">(required, String) Your md5 key.</string>

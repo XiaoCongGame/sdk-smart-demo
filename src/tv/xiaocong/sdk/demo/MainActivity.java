@@ -1,5 +1,10 @@
 package tv.xiaocong.sdk.demo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import tv.xiaocong.sdk.XcAndroidUtils;
 import tv.xiaocong.sdk.ad.GameSplashActivity;
 import tv.xiaocong.sdk.security.LoginActivity;
@@ -11,7 +16,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
+
+import com.xiaocong.sdk.PaymentResults;
+import com.xiaocong.sdk.pay.PaymentActivity;
 
 /**
  * The main activity for the demo.
@@ -30,6 +39,8 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.main);
     }
 
@@ -49,6 +60,10 @@ public class MainActivity extends Activity {
         startActivityForResult(loginIntent, REQUEST_CODE_LOGIN);
     }
 
+    public void changeUser(View view) {
+        LoginActivity.startMe(this, REQUEST_CODE_LOGIN, Keys.CLIENT_ID, Keys.CLIENT_SECRET, true);
+    }
+
     public void startup(View view) {
         Intent intent = new Intent(this, GameSplashActivity.class);
 
@@ -62,9 +77,43 @@ public class MainActivity extends Activity {
     }
 
     public void pay(View view) {
-        Intent intent = new Intent(this, PayActivity.class);
+        final int amount = 10; // 10 cents/ 10 xiaocong coins
 
-        startActivity(intent);
+        DateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.getDefault());
+        final String orderNo = Keys.PARTNER_ID + df.format(new Date());
+
+        final String pkgName = "tv.xiaocong.sdk.demo";
+
+        final String goodsDes = "A sword";
+
+        final String sign = getSign(Keys.PARTNER_ID, amount, pkgName, orderNo, Keys.PARTNER_MD5KEY);
+
+        final String callbackUrl = "www.xiaocong.tv";
+
+        final String remark = "This is a test payment";
+
+        XcPayUtils.pay(this, Keys.PARTNER_ID, amount, "md5", orderNo, pkgName, goodsDes, sign,
+                callbackUrl, remark);
+    }
+
+    public void pay2(View view) {
+        final int amount = 100;
+
+        DateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.getDefault());
+        final String orderNo = Keys.PARTNER_ID + df.format(new Date());
+
+        final String pkgName = "tv.xiaocong.sdk.demo";
+
+        final String goodsDes = "10 swords";
+
+        final String sign = getSign(Keys.PARTNER_ID, amount, pkgName, orderNo, Keys.PARTNER_MD5KEY);
+
+        final String callbackUrl = "www.xiaocong.tv";
+
+        final String remark = "This is a test payment";
+
+        XcPayUtils.pay(this, Keys.PARTNER_ID, amount, "md5", orderNo, pkgName, goodsDes, sign,
+                callbackUrl, remark);
     }
 
     @Override
@@ -72,7 +121,7 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_LOGIN && resultCode == RESULT_OK && data != null) {
-            String accessToken = data.getStringExtra(LoginActivity.RESPONSE_ACESS_TOKEN);
+            String accessToken = data.getStringExtra(LoginActivity.RESPONSE_ACCESS_TOKEN);
 
             Toast.makeText(this, "access_token:" + accessToken, Toast.LENGTH_LONG).show();
 
@@ -91,6 +140,23 @@ public class MainActivity extends Activity {
             }
         } else if (requestCode == REQUEST_CODE_SPLASH) {
             Toast.makeText(this, "Game started", Toast.LENGTH_LONG).show();
+        } else if (requestCode == PaymentActivity.REQUEST_CODE_START_PAY) {
+            if (resultCode == PaymentResults.PAYRESULT_OK) {
+                Toast.makeText(this, "I got a sword!!!", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Result: " + resultCode, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    /** Build the request signature. */
+    static String getSign(int partnerId, int amount, String pkgName, String orderNo, String md5key)
+            throws RuntimeException {
+        try {
+            return Md5Util.md5code(partnerId + "&" + pkgName + "&" + amount + "&" + orderNo + "&"
+                    + md5key);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

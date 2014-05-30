@@ -2,22 +2,11 @@
 <resources>
 
     <string name="app_name">XcSdkDemo</string>
-    <string name="demo_register">Register</string>
+    <string name="demo_register">Sign up</string>
     <string name="demo_login">Sign in</string>
+    <string name="demo_change_user">Change User</string>
     <string name="demo_splash">Game Splash</string>
-    <string name="demo_pay">Pay</string>
-    <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="pay_btn">Confirm</string>
-    <string name="pay_for">(required, String) The identifier or description of you goods</string>
-    <string name="order_num">(required, String) The order number. Should be unique for all your request. Prefixed by your partnerId. Format: ^{12,30}$</string>
-    <string name="amount">(required, number) Amount. How many Xiaocong coin to pay? 1 Xiaocong coin == 1 RMB cent.</string>
-    <string name="pkg">(required, String) The package name of you app</string>
-    <string name="secure_key">(required, String) Your md5 key.</string>
-    <string name="partner_id">(required, String)Partner Id</string>
-    <string name="callback_url">(required, String)The callback URL in your server.</string>
-    <string name="remark">(String) The remark of this order. Not required.</string>
-    
-    <string name="access_token">Oauth2 access_token. Sign in first if this field is empty.</string>
+    <string name="demo_pay">Buy me a sword(10 cent)</string>
+    <string name="demo_pay2">Buy me 10 swords(100 cent)</string>
 
 </resources>

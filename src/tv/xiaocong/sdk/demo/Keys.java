@@ -12,4 +12,8 @@ final class Keys {
      */
     static final String CLIENT_SECRET = "ghjgrtyafcdbn345bvbndlk";
 
+    static final int PARTNER_ID = 100027;
+
+    static final String PARTNER_MD5KEY = "1234567890";
+
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">小葱SDK</string>
+    <string name="demo_register">注册</string>
+    <string name="demo_login">登录</string>
+    <string name="demo_change_user">切换用户</string>
+    <string name="demo_splash">游戏欢迎屏</string>
+    <string name="demo_pay">买把剑！（10分）</string>
+    <string name="demo_pay2">买10把！（1元）</string>
+
+</resources>

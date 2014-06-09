@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
         final String remark = "This is a test payment";
 
         XcPayUtils.pay(this, Keys.PARTNER_ID, amount, "md5", orderNo, pkgName, goodsDes, sign,
-                callbackUrl, remark);
+                callbackUrl, remark, null);
     }
 
     public void pay2(View view) {
@@ -113,7 +113,7 @@ public class MainActivity extends Activity {
         final String remark = "This is a test payment";
 
         XcPayUtils.pay(this, Keys.PARTNER_ID, amount, "md5", orderNo, pkgName, goodsDes, sign,
-                callbackUrl, remark);
+                callbackUrl, remark, null);
     }
 
     @Override

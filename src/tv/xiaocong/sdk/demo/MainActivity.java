@@ -11,7 +11,6 @@ import tv.xiaocong.sdk.security.LoginActivity;
 import tv.xiaocong.sdk.security.RegisterActivity;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -120,13 +119,10 @@ public class MainActivity extends Activity {
 
         if (requestCode == REQUEST_CODE_LOGIN && resultCode == RESULT_OK && data != null) {
             String accessToken = data.getStringExtra(LoginActivity.RESPONSE_ACCESS_TOKEN);
+            String username = data.getStringExtra(LoginActivity.USERNAME);
 
-            Toast.makeText(this, "access_token:" + accessToken, Toast.LENGTH_LONG).show();
-
-            Editor editor = getSharedPreferences("session", MODE_PRIVATE).edit();
-            editor.putString("access_token", accessToken);
-            editor.commit();
-
+            String toast = String.format("access_token: %s, username: %s", accessToken, username);
+            Toast.makeText(this, toast, Toast.LENGTH_LONG).show();
         } else if (requestCode == REQUEST_CODE_REGISTER) {
             if (resultCode == RESULT_OK) {
                 Toast.makeText(this, data.getStringExtra(RegisterActivity.USERNAME),

@@ -36,6 +36,8 @@ public class MainActivity extends Activity {
 
     private static final int REQUEST_CODE_SPLASH = 3;
 
+    private static final String CALLBACK_URL = "114.215.207.7:8080/paycallback";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,12 +90,10 @@ public class MainActivity extends Activity {
 
         final String sign = getSign(Keys.PARTNER_ID, amount, pkgName, orderNo, Keys.PARTNER_MD5KEY);
 
-        final String callbackUrl = "www.xiaocong.tv";
-
         final String remark = "This is a test payment";
 
         XcPayUtils.pay(this, Keys.PARTNER_ID, amount, "md5", orderNo, pkgName, goodsDes, sign,
-                callbackUrl, remark, null);
+                CALLBACK_URL, remark, null);
     }
 
     public void pay2(View view) {
@@ -108,12 +108,10 @@ public class MainActivity extends Activity {
 
         final String sign = getSign(Keys.PARTNER_ID, amount, pkgName, orderNo, Keys.PARTNER_MD5KEY);
 
-        final String callbackUrl = "www.xiaocong.tv";
-
         final String remark = "This is a test payment";
 
         XcPayUtils.pay(this, Keys.PARTNER_ID, amount, "md5", orderNo, pkgName, goodsDes, sign,
-                callbackUrl, remark, null);
+                CALLBACK_URL, remark, null);
     }
 
     @Override

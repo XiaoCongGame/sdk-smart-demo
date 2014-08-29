@@ -2,18 +2,16 @@ package tv.xiaocong.sdk.demo;
 
 final class Keys {
 
-    /**
-     * OAuth2 client_id
-     */
-    static final String CLIENT_ID = "100018";
+    // Your app's ID
+    static final int APP_ID = 100018;
 
-    /**
-     * OAuth2 client_secret
-     */
-    static final String CLIENT_SECRET = "ghjgrtyafcdbn345bvbndlk";
+    // Your app's secret key
+    static final String APP_KEY = "ghjgrtyafcdbn345bvbndlk";
 
-    static final int PARTNER_ID = 100027;
+    // Your app's android package name
+    static final String PACKAGE_NAME = "tv.xiaocong.sdk.demo";
 
-    static final String PARTNER_MD5KEY = "1234567890";
+    // The callback url to your server
+    static final String NOTIFY_URL = "114.215.207.7:8080/paycallback";
 
 }

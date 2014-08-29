@@ -64,6 +64,30 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.xiaocong.sdk.pay.xccoin.XiaocongCoinPayActivity_"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.xiaocong.sdk.pay.ali.AliPayActivity_"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.xiaocong.sdk.pay.pp.PpPayActivity_"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.xiaocong.sdk.pay.qihoo.QihooPayActivity_"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.xiaocong.sdk.pay.yee.YeePayActivity_"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.xiaocong.sdk.pay.sheng.ShengPayActivity_"
+            android:screenOrientation="landscape" >
+        </activity>
 
         <service
             android:name="tv.xiaocong.sdk.ad.ApkDownloadSetupService"
@@ -147,7 +171,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
         </activity>
-        
+
         <!-- 添加360SDK必需的meta-data：QHOPENSDK_APPID。 -->
         <!-- 此处不要使用@string引用，上传APK时服务器要从这里读取值。读取失败会影响统计和结算，务必填写正确。 -->
         <meta-data

@@ -53,7 +53,8 @@ public class MainActivity extends Activity {
 
     public void login(View view) {
         Intent loginIntent = new Intent(this, LoginActivity.class);
-        loginIntent.putExtra("client_id", Keys.APP_ID);
+        // MUST be string !!!!!
+        loginIntent.putExtra("client_id", String.valueOf(Keys.APP_ID));
         loginIntent.putExtra("client_secret", Keys.APP_KEY);
         loginIntent.putExtra("usingCache", true); // 记住登录
 

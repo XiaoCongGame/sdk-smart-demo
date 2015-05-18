@@ -73,6 +73,10 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+            android:name="com.xiaocong.sdk.pay.aliscan.AliScanPayActivity_"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
             android:name="com.xiaocong.sdk.pay.pp.PpPayActivity_"
             android:screenOrientation="landscape" >
         </activity>

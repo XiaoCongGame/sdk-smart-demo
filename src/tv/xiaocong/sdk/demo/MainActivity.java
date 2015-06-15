@@ -191,7 +191,9 @@ public class MainActivity extends Activity {
                 remark, //
                 String.valueOf(Keys.APP_ID), // for back-compatible
                 Keys.APP_KEY, //
-                accessToken);
+                accessToken,
+                Keys.CHANNEL_ID
+                );
     }
 
     /** Build the request signature. */

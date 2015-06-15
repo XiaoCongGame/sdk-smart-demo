@@ -14,4 +14,7 @@ final class Keys {
     // The callback url to your server
     static final String NOTIFY_URL = "114.215.207.7:8080/paycallback";
 
+    // Your app's channel ID
+    static final String CHANNEL_ID = "";
+
 }
